@@ -1,17 +1,17 @@
 <?php
-// function cari($keyword)
-// {
-//     $link = mysqli_connect(
-//         "127.0.0.1", "root", "", "perpustakaan");
-//         $query =
-//         "SELECT id, judul FROM buku WHERE judul LIKE '%$keyword%'";
-//         $result = mysqli_query( $link, $query );
-//         while ( $row = mysqli_fetch_array( $result ) ) {
-//         $listbuku[] = $row;
-//         }
-//         mysqli_close( $link );
-//         return $listbuku;
-// }
+function cari($keyword)
+{
+    $link = mysqli_connect(
+        "127.0.0.1", "root", "", "perpustakaan");
+        $query =
+        "SELECT id, judul FROM buku WHERE judul LIKE '%$keyword%'";
+        $result = mysqli_query( $link, $query );
+        while ( $row = mysqli_fetch_array( $result ) ) {
+        $listbuku[] = $row;
+        }
+        mysqli_close( $link );
+        return $listbuku;
+}
 function display($listbuku)
 {
     echo "<br><table border=1 style='width:50%'>";
@@ -23,35 +23,12 @@ function display($listbuku)
 
 }
 
-function cari($keyword) {
-    $link = mysqli_connect("127.0.0.1", "root", "", "perpustakaan");
-    $query = "SELECT id, judul FROM buku WHERE judul LIKE '%$keyword%'";
-    $result = mysqli_query($link, $query);
-    $listbuku = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $listbuku[] = $row;
-    }
-    mysqli_close($link);
-    return $listbuku;
-}
 ?>
 
 <form method=get >
 <input type='text' name="keyword"/>
 <input type='submit' value="CARI"/>
 </form>
-
-<?php
-if (isset($_GET['keyword'])) {
-    $keyword = $_GET['keyword'];
-    $listbuku = cari($keyword);
-    if (!empty($listbuku)) {
-        display($listbuku);
-    } else {
-        echo "<p>Tidak ada buku ditemukan.</p>";
-    }
-}
-?>
 
 <a href='./pinjam/pinjam.php?fitur=read'>Lihat Keranjang</a>
 <br>

@@ -33,7 +33,7 @@
   <p>Nazril Farrel Insava/245150401111038</p>
   <p>Monggo Langsung Dipilih mau ngapain</p>
   <div>
-    <a href="cari.php">Cari Buku</a><br>
+    <a href="fitur.php">Cari Buku</a><br>
     <a href="pinjam/pinjam.php?fitur=read">Lihat Keranjang</a><br>
     <a href="pinjam/pinjam.php?fitur=read">Peminjaman Buku</a><br>
   </div>
